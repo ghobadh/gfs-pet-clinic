@@ -1,4 +1,4 @@
-package ca.gforcesoftware.gargamelpetclinic.model;
+package ca.gforcesoftware.gargamelclinic.model;
 
 import java.time.LocalDate;
 

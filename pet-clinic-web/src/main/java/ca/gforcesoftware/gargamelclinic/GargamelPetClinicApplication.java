@@ -1,4 +1,4 @@
-package ca.gforcesoftware.gargamelpetclinic;
+package ca.gforcesoftware.gargamelclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

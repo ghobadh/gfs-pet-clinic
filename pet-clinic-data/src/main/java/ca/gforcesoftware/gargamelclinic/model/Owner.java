@@ -1,4 +1,4 @@
-package ca.gforcesoftware.gargamelpetclinic.model;
+package ca.gforcesoftware.gargamelclinic.model;
 
 /**
  * @author gavinhashemi on 2024-10-04
