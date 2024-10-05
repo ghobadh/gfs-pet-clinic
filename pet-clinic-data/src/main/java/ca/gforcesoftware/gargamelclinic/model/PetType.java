@@ -3,7 +3,7 @@ package ca.gforcesoftware.gargamelclinic.model;
 /**
  * @author gavinhashemi on 2024-10-04
  */
-public class PetType {
+public class PetType extends BaseEntity {
     private String name;
 
     public String getName() {

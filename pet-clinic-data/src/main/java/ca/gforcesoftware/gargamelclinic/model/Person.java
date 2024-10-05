@@ -3,7 +3,7 @@ package ca.gforcesoftware.gargamelclinic.model;
 /**
  * @author gavinhashemi on 2024-10-04
  */
-public class Person {
+public class Person  extends BaseEntity{
     private String firstName;
     private String lastName;
 
