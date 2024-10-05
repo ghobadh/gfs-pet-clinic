@@ -9,7 +9,7 @@
     </parent>
     <groupId>ca.gforcesoftware</groupId>
     <artifactId>gargamel-pet-clinic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>pom</packaging>
 
 
@@ -52,6 +52,7 @@
     </build>
     <scm>
         <developerConnection>scm:git:https://github.com/ghobadh/gfs-pet-clinic.git</developerConnection>
+    <tag>gargamel-pet-clinic-0.0.1</tag>
   </scm>
 
 </project>
