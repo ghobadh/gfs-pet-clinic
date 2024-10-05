@@ -9,6 +9,8 @@
     </parent>
 
     <artifactId>pet-clinic-data</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.3-SNAPSHOT</version>
     <properties>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
