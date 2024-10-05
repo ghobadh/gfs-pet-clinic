@@ -13,13 +13,6 @@
     <packaging>pom</packaging>
     <name>gargamel-pet-clinic</name>
     <description>gargamel-pet-clinic</description>
-    <url />
-    <licenses>
-        <license />
-    </licenses>
-    <developers>
-        <developer />
-    </developers>
     <modules>
         <module>pet-clinic-data</module>
         <module>pet-clinic-web</module>
