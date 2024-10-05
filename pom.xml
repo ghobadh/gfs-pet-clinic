@@ -7,10 +7,12 @@
         <version>3.3.4</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ca.gforceSoftware</groupId>
+    <groupId>ca.gforcesoftware</groupId>
     <artifactId>gargamel-pet-clinic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+
     <name>gargamel-pet-clinic</name>
     <description>gargamel-pet-clinic</description>
     <modules>

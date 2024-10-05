@@ -7,7 +7,6 @@
         <groupId>ca.gforcesoftware</groupId>
         <artifactId>gargamel-pet-clinic</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
     <artifactId>pet-clinic-data</artifactId>
