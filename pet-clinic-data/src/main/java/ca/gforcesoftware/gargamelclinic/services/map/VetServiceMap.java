@@ -2,13 +2,14 @@ package ca.gforcesoftware.gargamelclinic.services.map;
 
 import ca.gforcesoftware.gargamelclinic.model.Vet;
 import ca.gforcesoftware.gargamelclinic.services.CrudService;
+import ca.gforcesoftware.gargamelclinic.services.VetService;
 
 import java.util.Set;
 
 /**
  * @author gavinhashemi on 2024-10-05
  */
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -32,5 +33,10 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
     @Override
     public Vet save(Vet owner) {
         return super.save(owner.getId(), owner);
+    }
+
+    @Override
+    public Vet findByLastName(String lastName) {
+        return null;
     }
 }
