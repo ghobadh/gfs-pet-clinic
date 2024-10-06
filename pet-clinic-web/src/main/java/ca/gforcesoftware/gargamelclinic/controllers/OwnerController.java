@@ -1,5 +1,6 @@
 package ca.gforcesoftware.gargamelclinic.controllers;
 
+import ca.gforcesoftware.gargamelclinic.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,12 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/owners")
 @Controller
 public class OwnerController {
+    private final OwnerService ownerService;
+
+    public OwnerController(OwnerService ownerService) {
+        this.ownerService = ownerService;
+    }
+
     /*
-    Note that becauese we have request maapping in the class level so when we call this method "/owners" will be added to the method request mapping
+    Note that because we have request maping in the class level so when we call this method "/owners" will be added to the method request mapping
     so the list below would be /owners . /owners/index and /owners/index.html
      */
     @RequestMapping({"","/index", "/index.html"})
     public String listOwner(Model model) {
+        model.addAttribute("owners", ownerService.findAll());
 
         return "owners/index";
     }
