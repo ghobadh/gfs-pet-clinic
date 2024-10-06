@@ -3,12 +3,14 @@ package ca.gforcesoftware.gargamelclinic.services.map;
 import ca.gforcesoftware.gargamelclinic.model.Owner;
 import ca.gforcesoftware.gargamelclinic.services.CrudService;
 import ca.gforcesoftware.gargamelclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * @author gavinhashemi on 2024-10-05
  */
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {

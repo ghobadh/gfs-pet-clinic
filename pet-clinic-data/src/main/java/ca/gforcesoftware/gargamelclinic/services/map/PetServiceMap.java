@@ -3,12 +3,14 @@ package ca.gforcesoftware.gargamelclinic.services.map;
 import ca.gforcesoftware.gargamelclinic.model.Pet;
 import ca.gforcesoftware.gargamelclinic.services.CrudService;
 import ca.gforcesoftware.gargamelclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * @author gavinhashemi on 2024-10-05
  */
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
