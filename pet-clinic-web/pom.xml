@@ -3,7 +3,7 @@
     <parent>
         <groupId>ca.gforcesoftware</groupId>
         <artifactId>gargamel-pet-clinic</artifactId>
-        <version>0.0.5</version>
+        <version>0.0.6-SNAPSHOT</version>
     </parent>
     <artifactId>pet-clinic-web</artifactId>
 <dependencies>
