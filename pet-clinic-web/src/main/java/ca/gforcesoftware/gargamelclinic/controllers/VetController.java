@@ -15,16 +15,16 @@ public class VetController {
 
     public static final String VET_VIEW = "vets/index";
 
-    //public final VetService vetService;
+    public final VetService vetService;
 
 
-   // public VetController(@Qualifier("vet") VetService vetService) {
-    //    this.vetService = vetService;
-  //  }
+    public VetController(VetService vetService) {
+        this.vetService = vetService;
+    }
 
     @RequestMapping({"/vets", "vets/index","/vets/index.html"})
     public String listVets(Model model) {
-      //  model.addAttribute("vetlist", vetService.findAll());
+        model.addAttribute("vets", vetService.findAll());
         return VET_VIEW;
     }
 }
