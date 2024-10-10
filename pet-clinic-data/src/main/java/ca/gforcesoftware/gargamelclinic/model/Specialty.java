@@ -3,7 +3,7 @@ package ca.gforcesoftware.gargamelclinic.model;
 /**
  * @author gavinhashemi on 2024-10-09
  */
-public class Speciality extends BaseEntity{
+public class Specialty extends BaseEntity{
     private String description;
 
     public String getDescription() {
