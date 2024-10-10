@@ -1,13 +1,7 @@
 package ca.gforcesoftware.gargamelclinic.bootstrap;
 
-import ca.gforcesoftware.gargamelclinic.model.Owner;
-import ca.gforcesoftware.gargamelclinic.model.Pet;
-import ca.gforcesoftware.gargamelclinic.model.PetType;
-import ca.gforcesoftware.gargamelclinic.model.Vet;
-import ca.gforcesoftware.gargamelclinic.services.OwnerService;
-import ca.gforcesoftware.gargamelclinic.services.PetService;
-import ca.gforcesoftware.gargamelclinic.services.PetTypeService;
-import ca.gforcesoftware.gargamelclinic.services.VetService;
+import ca.gforcesoftware.gargamelclinic.model.*;
+import ca.gforcesoftware.gargamelclinic.services.*;
 import ca.gforcesoftware.gargamelclinic.services.map.OwnerServiceMap;
 import ca.gforcesoftware.gargamelclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
@@ -28,17 +22,28 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final SpecialtyService specialtyService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.specialtyService = specialtyService;
     }
 
 
     @Override
     public void run(String... args) throws Exception {
+        int count = petTypeService.findAll().size();
+        if (count == 0) {
+            loadData();
+        }
 
+
+
+    }
+
+    private void loadData() {
         PetType dog = new PetType();
         dog.setName("Dog");
         PetType savedDogType = petTypeService.save(dog);
@@ -89,18 +94,32 @@ public class DataLoader implements CommandLineRunner {
 
         System.out.println("Loaded Owners.....");
 
+        Specialty radiology = new Specialty();
+        radiology.setDescription("radiology");
+        Specialty savedRadiology = specialtyService.save(radiology);
+
+        Specialty surgery = new Specialty();
+        surgery.setDescription("surgery");
+        Specialty savedSurgery = specialtyService.save(surgery);
+
+        Specialty dentistry = new Specialty();
+        dentistry.setDescription("dentistry");
+        Specialty savedDentistry = specialtyService.save(dentistry);
+
         Vet vet1= new Vet();
         vet1.setFirstName("Holo");
-        vet1.setLastName(" Jigar");
+        vet1.setLastName("Jigar");
+        vet1.getSpecialities().add(savedRadiology);
         vetService.save(vet1);
+
 
         Vet vet2= new Vet();
         vet2.setFirstName("Gavin");
         vet2.setLastName("Happyman");
+        vet2.getSpecialities().add(savedDentistry);
+        vet2.getSpecialities().add(savedSurgery);
         vetService.save(vet2);
 
         System.out.println("Loaded Vets.....");
-
-
     }
 }
