@@ -1,6 +1,7 @@
 package ca.gforcesoftware.gargamelclinic.bootstrap;
 
 import ca.gforcesoftware.gargamelclinic.model.Owner;
+import ca.gforcesoftware.gargamelclinic.model.Pet;
 import ca.gforcesoftware.gargamelclinic.model.PetType;
 import ca.gforcesoftware.gargamelclinic.model.Vet;
 import ca.gforcesoftware.gargamelclinic.services.OwnerService;
@@ -11,6 +12,8 @@ import ca.gforcesoftware.gargamelclinic.services.map.OwnerServiceMap;
 import ca.gforcesoftware.gargamelclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 /**
  * @author gavinhashemi on 2024-10-06
@@ -49,11 +52,39 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1= new Owner();
         owner1.setFirstName("John");
         owner1.setLastName("Doe");
+        owner1.setCity("San Francisco");
+        owner1.setTelephone("1234567890");
+        owner1.setAddress("San Francisco, CA");
+
+        Pet johnDog = new Pet();
+        johnDog.setPetType(dog);
+        johnDog.setOwner(owner1);
+        johnDog.setBirthDate(LocalDate.now());
+        johnDog.setName("Rex");
+        owner1.getPets().add(johnDog);
+
+        Pet johnCat = new Pet();
+        johnCat.setPetType(cat);
+        johnCat.setOwner(owner1);
+        johnCat.setBirthDate(LocalDate.now());
+        johnCat.setName("Maloos");
+        owner1.getPets().add(johnCat);
+
         ownerService.save(owner1);
 
         Owner owner2= new Owner();
         owner2.setFirstName("Jane");
         owner2.setLastName("Fonda");
+        owner2.setCity("San Jose");
+        owner2.setTelephone("987654321");
+        owner2.setAddress("San Jose, CA");
+
+        Pet janeCat = new Pet();
+        janeCat.setPetType(cat);
+        janeCat.setOwner(owner1);
+        janeCat.setBirthDate(LocalDate.now());
+        janeCat.setName("Gaga");
+        owner2.getPets().add(janeCat);
         ownerService.save(owner2);
 
         System.out.println("Loaded Owners.....");
