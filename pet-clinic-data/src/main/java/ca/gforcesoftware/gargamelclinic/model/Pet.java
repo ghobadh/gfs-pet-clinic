@@ -3,6 +3,8 @@ package ca.gforcesoftware.gargamelclinic.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author gavinhashemi on 2024-10-04
@@ -24,6 +26,9 @@ public class Pet  extends BaseEntity{
 
     @Column(name="birth_date")
     private LocalDate birthDate;
+
+    @OneToMany(cascade=CascadeType.ALL , mappedBy = "pet")
+    private Set<Visit> visits = new HashSet<>();
 
     public PetType getPetType() {
         return petType;
@@ -54,5 +59,13 @@ public class Pet  extends BaseEntity{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(Set<Visit> visits) {
+        this.visits = visits;
     }
 }
