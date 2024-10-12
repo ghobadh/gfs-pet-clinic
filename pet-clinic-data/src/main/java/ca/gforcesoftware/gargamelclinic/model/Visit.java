@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
  * @author gavinhashemi on 2024-10-09
  */
 @Entity
-@Table("visit")
+@Table(name="visit")
 public class Visit extends BaseEntity {
 
     @Column(name = "date")
