@@ -2,8 +2,6 @@ package ca.gforcesoftware.gargamelclinic.bootstrap;
 
 import ca.gforcesoftware.gargamelclinic.model.*;
 import ca.gforcesoftware.gargamelclinic.services.*;
-import ca.gforcesoftware.gargamelclinic.services.map.OwnerServiceMap;
-import ca.gforcesoftware.gargamelclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -109,15 +107,15 @@ public class DataLoader implements CommandLineRunner {
         Vet vet1= new Vet();
         vet1.setFirstName("Holo");
         vet1.setLastName("Jigar");
-        vet1.getSpecialities().add(savedRadiology);
+        vet1.getSpecialties().add(savedRadiology);
         vetService.save(vet1);
 
 
         Vet vet2= new Vet();
         vet2.setFirstName("Gavin");
         vet2.setLastName("Happyman");
-        vet2.getSpecialities().add(savedDentistry);
-        vet2.getSpecialities().add(savedSurgery);
+        vet2.getSpecialties().add(savedDentistry);
+        vet2.getSpecialties().add(savedSurgery);
         vetService.save(vet2);
 
         System.out.println("Loaded Vets.....");

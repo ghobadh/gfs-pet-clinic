@@ -1,18 +1,31 @@
 package ca.gforcesoftware.gargamelclinic.model;
 
+import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 /**
  * @author gavinhashemi on 2024-10-04
  */
+@Entity
+@Table(name="vets")
 public class Vet extends Person{
-    private Set<Specialty> specialities =  new HashSet<>();
 
-    public Set<Specialty> getSpecialities() {
-        return specialities;
+    /*
+    When you define many to many relationship by default the relationship fetch is lazy but in here in explicitly as to fetch it eager
+    Note: since Person class is inherited from baseEntity class and we define ID over there. So in here for JoinTable we don't need to re-define it.
+     */
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable( name ="vets_specialties"
+            , joinColumns = @JoinColumn(name = "vet_id" )
+            , inverseJoinColumns = @JoinColumn(name = "specialty_id"))
+    private Set<Specialty> specialties =  new HashSet<>();
+
+    public Set<Specialty> getSpecialties() {
+        return specialties;
     }
 
-    public void setSpecialities(Set<Specialty> specialities) {
-        this.specialities = specialities;
+    public void setSpecialties(Set<Specialty> specialities) {
+        this.specialties = specialities;
     }
 }

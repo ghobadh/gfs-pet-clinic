@@ -2,7 +2,6 @@ package ca.gforcesoftware.gargamelclinic.services.map;
 
 import ca.gforcesoftware.gargamelclinic.model.Specialty;
 import ca.gforcesoftware.gargamelclinic.model.Vet;
-import ca.gforcesoftware.gargamelclinic.services.CrudService;
 import ca.gforcesoftware.gargamelclinic.services.SpecialtyService;
 import ca.gforcesoftware.gargamelclinic.services.VetService;
 import org.springframework.stereotype.Service;
@@ -41,8 +40,8 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet vet) {
-        if (vet.getSpecialities().size() > 0) {
-            vet.getSpecialities().forEach(speciality -> {
+        if (vet.getSpecialties().size() > 0) {
+            vet.getSpecialties().forEach(speciality -> {
                 if(speciality.getId()== null){
                     Specialty savedSpecitalty = specialtyService.save(speciality);
                     speciality.setId(savedSpecitalty.getId());
