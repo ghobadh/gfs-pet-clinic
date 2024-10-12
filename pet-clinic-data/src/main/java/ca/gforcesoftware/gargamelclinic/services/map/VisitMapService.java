@@ -2,12 +2,14 @@ package ca.gforcesoftware.gargamelclinic.services.map;
 
 import ca.gforcesoftware.gargamelclinic.model.Visit;
 import ca.gforcesoftware.gargamelclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * @author gavinhashemi on 2024-10-12
  */
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long>  implements VisitService {
     @Override
     public Set<Visit> findAll() {
@@ -25,7 +27,7 @@ public class VisitMapService extends AbstractMapService<Visit, Long>  implements
                 visit.getPet().getOwner().getId()== null) {
             throw new RuntimeException("Invalid Visit");
         }
-        return save(visit);
+        return super.save(visit);
     }
 
     @Override

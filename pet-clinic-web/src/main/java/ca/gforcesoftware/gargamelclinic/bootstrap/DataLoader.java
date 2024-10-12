@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author gavinhashemi on 2024-10-06
@@ -17,12 +18,15 @@ By adding @Component, and implementing CommandLineRunner, DataLoader class is st
 @Component
 public class DataLoader implements CommandLineRunner {
 
+    private final VisitService visitService;
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(VisitService visitService, OwnerService ownerService, VetService vetService,
+                      PetTypeService petTypeService, SpecialtyService specialtyService) {
+        this.visitService = visitService;
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
@@ -89,6 +93,13 @@ public class DataLoader implements CommandLineRunner {
         janeCat.setName("Gaga");
         owner2.getPets().add(janeCat);
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(janeCat);
+        catVisit.setDate(LocalDateTime.now());
+        catVisit.setDescription("The cat is farting a lot");
+        visitService.save(catVisit);
+
 
         System.out.println("Loaded Owners.....");
 
