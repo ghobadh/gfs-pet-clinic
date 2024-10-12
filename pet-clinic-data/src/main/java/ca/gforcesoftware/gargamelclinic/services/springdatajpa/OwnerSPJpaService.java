@@ -21,7 +21,7 @@ used @Service. Therefore, I have to add @Profile to prevent it. Of course, other
 @Qualifier.
  */
 @Service
-@Profile("springdatajpa")
+@Profile("springjpsdata")
 public class OwnerSPJpaService implements OwnerService{
     private final OwnerRepository ownerRepository;
     private final PetRepsitory petRepository;

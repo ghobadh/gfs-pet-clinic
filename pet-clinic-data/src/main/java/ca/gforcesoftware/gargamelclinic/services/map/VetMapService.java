@@ -4,6 +4,7 @@ import ca.gforcesoftware.gargamelclinic.model.Specialty;
 import ca.gforcesoftware.gargamelclinic.model.Vet;
 import ca.gforcesoftware.gargamelclinic.services.SpecialtyService;
 import ca.gforcesoftware.gargamelclinic.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.Set;
  * @author gavinhashemi on 2024-10-05
  */
 @Service
+@Profile({"default", "map"})
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
     private final SpecialtyService specialtyService;
 

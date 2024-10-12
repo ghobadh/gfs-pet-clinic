@@ -5,6 +5,7 @@ import ca.gforcesoftware.gargamelclinic.model.Pet;
 import ca.gforcesoftware.gargamelclinic.services.OwnerService;
 import ca.gforcesoftware.gargamelclinic.services.PetService;
 import ca.gforcesoftware.gargamelclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -13,6 +14,7 @@ import java.util.Set;
  * @author gavinhashemi on 2024-10-05
  */
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
