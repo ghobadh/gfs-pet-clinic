@@ -1,12 +1,22 @@
 package ca.gforcesoftware.gargamelclinic.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 /**
  * @author gavinhashemi on 2024-10-04
  */
+/*
+For sake of issue with @EqualAndHashCode in @Data, I decide to put in this way
+ */
+@ToString
+@Setter
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="vets")
 public class Vet extends Person{
@@ -21,11 +31,4 @@ public class Vet extends Person{
             , inverseJoinColumns = @JoinColumn(name = "specialty_id"))
     private Set<Specialty> specialties =  new HashSet<>();
 
-    public Set<Specialty> getSpecialties() {
-        return specialties;
-    }
-
-    public void setSpecialties(Set<Specialty> specialities) {
-        this.specialties = specialities;
-    }
 }

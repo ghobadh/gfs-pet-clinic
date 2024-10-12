@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author gavinhashemi on 2024-10-06
@@ -93,6 +95,15 @@ public class DataLoader implements CommandLineRunner {
         janeCat.setName("Gaga");
         owner2.getPets().add(janeCat);
         ownerService.save(owner2);
+
+        Set<Pet> hashPets = new HashSet<>();
+        hashPets.add(johnDog);
+
+        Owner owner3 = Owner.builder()
+                .address("1 Parliment Stree")
+                .id(99L)
+                .pets(hashPets)
+                .build();
 
         Visit catVisit = new Visit();
         catVisit.setPet(janeCat);
