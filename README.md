@@ -1,0 +1,2 @@
+Gargamel Pet Clinic
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ghobadh/gfs-pet-clinic/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ghobadh/gfs-pet-clinic/tree/master)
