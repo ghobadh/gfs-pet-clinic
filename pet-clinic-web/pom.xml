@@ -42,6 +42,12 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
         <scope>test</scope>
+        <exclusions>
+            <exclusion>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+            </exclusion>
+        </exclusions>
     </dependency>
     <!-- webjars -->
     <dependency>
@@ -99,6 +105,22 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
+        <!-- I added this plugin so the application can work with JUnit5 -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                        <version>5.9.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
+
 </project>
